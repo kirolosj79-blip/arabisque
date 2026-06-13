@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+/* ─── Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+body {
+  background-color: #0A0803;
+  color: #F0E0B8;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Force dark always */
+@media (prefers-color-scheme: dark) {
+  body { background-color: #0A0803; color: #F0E0B8; }
+}
+
+/* ─── Layout Container ───────────────────────────────────────────────────── */
+.container-site {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .container-site { padding-left: 32px; padding-right: 32px; }
+}
+@media (min-width: 1024px) {
+  .container-site { padding-left: 48px; padding-right: 48px; }
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-heading { font-family: 'Cinzel', serif; }
+.font-body    { font-family: 'Inter', system-ui, sans-serif; }
+
+/* Responsive headings */
+.h1-hero {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+.h2-section {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 300;
+  line-height: 1.15;
+}
+.h3-card {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.label-sm {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.label-md {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ─── Colors ─────────────────────────────────────────────────────────────── */
+.text-gold {
+  background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-cream  { color: #F0E0B8; }
+.text-amber  { color: #E8C97A; }
+.text-gold-solid { color: #C9A84C; }
+.text-muted  { color: #9A8660; }
+.text-dim    { color: #5A4E38; }
+
+/* ─── Gold divider ───────────────────────────────────────────────────────── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C9A84C50 30%, #C9A84C 50%, #C9A84C50 70%, transparent 100%);
+}
+
+/* ─── Section spacing ────────────────────────────────────────────────────── */
+.section-pad {
+  padding-top: clamp(60px, 10vw, 120px);
+  padding-bottom: clamp(60px, 10vw, 120px);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────────────────── */
+.card {
+  background: #1A1610;
+  border: 1px solid #2E2820;
+}
+.card-hover {
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+.card-hover:hover {
+  border-color: #C9A84C40;
+  box-shadow: 0 6px 30px rgba(201,168,76,0.1);
+  transform: translateY(-2px);
+}
+.card-top-line::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A84C30, transparent);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
+  color: #0A0803;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-gold:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-gold:active { transform: translateY(0); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #C9A84C;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 11px 27px;
+  border: 1px solid #C9A84C60;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-outline:hover { background: rgba(201,168,76,0.08); border-color: #C9A84C; }
+
+/* ─── Patterns & Effects ─────────────────────────────────────────────────── */
+.pattern-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.4' opacity='0.12'%3E%3Cpolygon points='40,4 76,22 76,58 40,76 4,58 4,22'/%3E%3Cpolygon points='40,14 66,28 66,52 40,66 14,52 14,28'/%3E%3Cpolygon points='40,24 56,34 56,46 40,56 24,46 24,34'/%3E%3Cline x1='40' y1='4' x2='40' y2='76'/%3E%3Cline x1='4' y1='22' x2='76' y2='58'/%3E%3Cline x1='4' y1='58' x2='76' y2='22'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ─── Nav ────────────────────────────────────────────────────────────────── */
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9A8660;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 1px;
+  background: #C9A84C;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  transform-origin: center;
+}
+.nav-link:hover { color: #E8C97A; }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+/* ─── Form inputs ────────────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  background: #0D0B07;
+  border: 1px solid #2E2820;
+  color: #E8C97A;
+  padding: 10px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.input::placeholder { color: #3A3228; }
+.input:focus { border-color: rgba(201,168,76,0.4); }
+
+/* ─── Menu item card ─────────────────────────────────────────────────────── */
+.menu-card {
+  background: #1A1610;
+  border: 1px solid #2E2820;
+  padding: 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-card:hover {
+  border-color: rgba(201,168,76,0.25);
+  box-shadow: 0 4px 24px rgba(201,168,76,0.07);
+}
+
+/* ─── Price ──────────────────────────────────────────────────────────────── */
+.price-tag {
+  font-family: 'Cinzel', serif;
+  color: #C9A84C;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Halal badge ────────────────────────────────────────────────────────── */
+.halal-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #C9A84C;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  gap: 1px;
+}
+
+/* ─── Spice dots ─────────────────────────────────────────────────────────── */
+.spice-dot { width: 5px; height: 5px; border-radius: 50%; background: #C9A84C; display: inline-block; }
+.spice-dot.empty { background: #2E2820; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0A0803; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 4px; }
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection { background: rgba(201,168,76,0.15); color: #E8C97A; }
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease both; }
+
+@keyframes shimmerBg {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #1A1610 25%, #2A2418 50%, #1A1610 75%);
+  background-size: 200% 100%;
+  animation: shimmerBg 1.5s infinite;
+}
+
+/* ─── Admin only ─────────────────────────────────────────────────────────── */
+.admin-input {
+  width: 100%;
+  background: #0A0803;
+  border: 1px solid #2E2820;
+  color: #E8C97A;
+  padding: 8px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.admin-input::placeholder { color: #3A3228; }
+.admin-input:focus { border-color: rgba(201,168,76,0.35); }
+
+/* ─── Hover utility classes (replaces JS onMouseOver hacks) ──────────────── */
+.hover-gold:hover { border-color: rgba(201,168,76,0.4) !important; }
+.hover-gold-text:hover { color: #C9A84C !important; }
+.hover-amber:hover { color: #E8C97A !important; }
+.hover-red:hover { color: #f87171 !important; border-color: rgba(239,68,68,0.4) !important; }
+.hover-lift:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(201,168,76,0.2); }
+
+/* Order platform buttons */
+.order-btn-primary { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:400px; padding:16px 24px; text-decoration:none; background:linear-gradient(135deg,#C9A84C,#E8C97A,#C9A84C); color:#0A0803; box-shadow:0 0 32px rgba(201,168,76,0.25); transition:transform 0.25s ease,box-shadow 0.25s ease; }
+.order-btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(201,168,76,0.35); }
+.order-btn-secondary { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:400px; padding:16px 24px; text-decoration:none; background:transparent; border:1px solid rgba(201,168,76,0.5); color:#C9A84C; transition:all 0.25s ease; }
+.order-btn-secondary:hover { background:rgba(201,168,76,0.08); border-color:#C9A84C; transform:translateY(-2px); }
+
+/* Contact social links */
+.social-link { display:flex; align-items:center; gap:8px; border:1px solid #2E2820; padding:10px 14px; text-decoration:none; transition:border-color 0.2s; }
+.social-link:hover { border-color:rgba(201,168,76,0.4); }
+
+/* Footer nav links */
+.footer-link { font-family:Inter,sans-serif; font-size:13px; color:#5A4E38; text-decoration:none; padding:5px 0; display:block; transition:color 0.2s; }
+.footer-link:hover { color:#9A8660; }
+.footer-social { width:38px; height:38px; border:1px solid #2E2820; display:flex; align-items:center; justify-content:center; color:#5A4E38; text-decoration:none; transition:all 0.2s; }
+.footer-social:hover { border-color:rgba(201,168,76,0.4); color:#C9A84C; }
+
+/* Admin table rows */
+.admin-row:hover { background:rgba(255,255,255,0.02); }
+.admin-btn { background:none; border:none; font-family:Inter,sans-serif; font-size:13px; cursor:pointer; padding:0; color:#9A8660; transition:color 0.2s; }
+.admin-btn:hover { color:#C9A84C; }
+.admin-btn-del { background:none; border:none; font-family:Inter,sans-serif; font-size:13px; cursor:pointer; padding:0; color:#5A4E38; transition:color 0.2s; }
+.admin-btn-del:hover { color:#f87171; }
+
+/* Promo card hover */
+.promo-card-hover:hover { border-color: rgba(201,168,76,0.3) !important; }
+
+/* ─── RTL / Arabic Support ───────────────────────────────────────────────── */
+[dir="rtl"] { font-family: 'Noto Kufi Arabic', sans-serif; }
+[dir="rtl"] .container-site { direction: rtl; }
+[dir="rtl"] .section-header { direction: rtl; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { font-family: 'Noto Kufi Arabic', Georgia, serif !important; }
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] a, [dir="rtl"] button { font-family: 'Noto Kufi Arabic', sans-serif !important; letter-spacing: 0 !important; }
+[dir="rtl"] .menu-tab { letter-spacing: 0 !important; }
+[dir="rtl"] .menu-tabs-inner { direction: rtl; }
+[dir="rtl"] .menu-grid { direction: rtl; }
+[dir="rtl"] .menu-card-name { font-family: 'Noto Kufi Arabic', serif !important; }
