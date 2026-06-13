@@ -17,9 +17,8 @@ const PUBLIC_GET_ROUTES = [
 ];
 
 export function middleware(req: NextRequest) {
-  const { pathname, method } = req.nextUrl;
+  const { pathname } = req.nextUrl;
   const reqMethod = req.method;
-
   // Check if this is an admin API route
   const isAdminRoute = ADMIN_API_ROUTES.some(r => pathname.startsWith(r));
   if (!isAdminRoute) return NextResponse.next();
