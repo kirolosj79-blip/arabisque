@@ -968,7 +968,7 @@ export default function Admin() {
                 <p style={{fontFamily:"Inter,sans-serif",fontSize:12,color:"#5A4E38",marginBottom:16,lineHeight:1.6}}>
                   الروابط دي بتظهر في صفحة التواصل والفوتر. تقدر تضيف، تعدل، أو تخفي أي منصة.
                 </p>
-                {socials.length === 0 && <p style={{color:"#5A4E38",fontFamily:"Inter,sans-serif",fontSize:13}}>لا يوجد روابط. اضغط "+ إضافة منصة"</p>}
+                {socials.length === 0 && <p style={{color:"#5A4E38",fontFamily:"Inter,sans-serif",fontSize:13}}>لا يوجد روابط. اضغط &quot;+ إضافة منصة&quot;</p>}
                 {socials.map(s => (
                   <div key={s.id} style={{display:"grid",gridTemplateColumns:"48px 1fr 2fr auto",gap:10,alignItems:"center",marginBottom:12,padding:"10px 12px",background:"#0D0B07",border:"1px solid #2E2820"}}>
                     {/* Icon */}
@@ -1002,7 +1002,7 @@ export default function Admin() {
               <div style={{...S.card, marginBottom:18}}>
                 <span style={S.catTitle}>🕐 مواعيد الشغل</span>
                 <p style={{fontFamily:"Inter,sans-serif",fontSize:12,color:"#5A4E38",marginBottom:16,lineHeight:1.6}}>
-                  حدد مواعيد كل يوم لوحده. لو اليوم إجازة، فعّل "مغلق".
+                  حدد مواعيد كل يوم لوحده. لو اليوم إجازة، فعّل &quot;مغلق&quot;.
                 </p>
                 <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))",gap:10}}>
                   {hoursSchedule.map(h => (
